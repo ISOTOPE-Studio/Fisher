@@ -1,4 +1,4 @@
-package cc.isotopestudio.Fisher;
+package cc.isotopestudio.Fisher.util;
 
 import org.bukkit.ChatColor;
 

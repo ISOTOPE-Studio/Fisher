@@ -1,0 +1,40 @@
+package cc.isotopestudio.Fisher.util;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.jetbrains.annotations.Contract;
+
+/**
+ * Created by Mars on 5/15/2016.
+ * Copyright ISOTOPE Studio
+ */
+public class ISOUtil {
+
+    public static String locationToString(Location loc) {
+        return loc.getWorld().getName() + " " + loc.getBlockX() + " " + loc.getBlockY() + " " + loc.getBlockZ();
+    }
+
+    @Contract("null -> null")
+    public static Location stringToLocation(String string) {
+        if (string == null) return null;
+        String[] s = string.split(" ");
+        if (s.length != 4) return null;
+        World world = Bukkit.getWorld(s[0]);
+        int x = Integer.parseInt(s[1]);
+        int y = Integer.parseInt(s[2]);
+        int z = Integer.parseInt(s[3]);
+        return new Location(world, x, y, z);
+    }
+
+    public static int random(int min, int max) {
+        double ran = Math.random() * (max - min + 1) + min;
+        return (int) ran;
+    }
+
+    public static boolean random(int count) {
+        int ran = (int) (Math.random() * count) + 1;
+        return count == ran;
+    }
+
+}

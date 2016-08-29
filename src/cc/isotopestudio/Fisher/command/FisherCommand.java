@@ -1,7 +1,7 @@
 package cc.isotopestudio.Fisher.command;
 
 import cc.isotopestudio.Fisher.Pool;
-import cc.isotopestudio.Fisher.S;
+import cc.isotopestudio.Fisher.util.S;
 import cc.isotopestudio.Fisher.listener.AdminListener;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -59,7 +59,7 @@ public class FisherCommand implements CommandExecutor {
                         getLarger(oldPos1.getBlockY(), oldPos2.getBlockY()),
                         getLarger(oldPos1.getBlockZ(), oldPos2.getBlockZ()));
 
-                Pool.pools.put(args[1], new Pool(args[1], pos1, pos2));
+                Pool.pools.put(args[1], new Pool(args[1], pos1, pos2, true));
 
                 player.sendMessage(S.toPrefixGreen("创建成功"));
                 player.sendMessage(S.toYellow("名字: " + args[1]));

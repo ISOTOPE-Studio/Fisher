@@ -1,6 +1,6 @@
 package cc.isotopestudio.Fisher.listener;
 
-import cc.isotopestudio.Fisher.S;
+import cc.isotopestudio.Fisher.util.S;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
