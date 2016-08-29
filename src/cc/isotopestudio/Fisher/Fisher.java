@@ -2,6 +2,7 @@ package cc.isotopestudio.Fisher;
 
 import cc.isotopestudio.Fisher.command.FisherCommand;
 import cc.isotopestudio.Fisher.listener.AdminListener;
+import cc.isotopestudio.Fisher.listener.FishingListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,6 +19,7 @@ public class Fisher extends JavaPlugin {
         this.getCommand("Fisher").setExecutor(new FisherCommand());
 
         Bukkit.getPluginManager().registerEvents(new AdminListener(), this);
+        Bukkit.getPluginManager().registerEvents(new FishingListener(), this);
 
         getLogger().info(pluginName + "成功加载!");
         getLogger().info(pluginName + "由ISOTOPE Studio制作!");
