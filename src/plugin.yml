@@ -1,0 +1,13 @@
+name: Fisher
+main: cc.isotopestudio.Fisher.Fisher
+
+author: Mars
+description: 
+website: http://isotopestudio.cc
+version: 1.0.0
+
+commands:
+  Fisher:
+    description: Fisher command
+    usage: /<command> - Get Information
+    aliases: chenghao
