@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/*
  * Created by Mars on 8/29/2016.
  * Copyright ISOTOPE Studio
  */

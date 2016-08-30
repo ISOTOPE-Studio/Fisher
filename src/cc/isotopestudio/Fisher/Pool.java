@@ -2,25 +2,24 @@ package cc.isotopestudio.Fisher;
 
 import cc.isotopestudio.Fisher.util.ISOUtil;
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
 import static cc.isotopestudio.Fisher.Fisher.plugin;
 
-/**
+/*
  * Created by Mars on 8/29/2016.
  * Copyright ISOTOPE Studio
  */
 public class Pool {
 
-    public static Map<String, Pool> pools = new HashMap<>();
+    public static final Map<String, Pool> pools = new HashMap<>();
 
     private final String name;
     private final Location pos1;
     private final Location pos2;
-    private Set<Reward> rewards = new HashSet<>();
+    private final List<Reward> rewards = new ArrayList<>();
 
     public Pool(String name, Location pos1, Location pos2, boolean save) {
         this.name = name;
@@ -40,18 +39,26 @@ public class Pool {
         return name;
     }
 
-    private boolean isInPool(Player player) {
-        Location loc = player.getLocation();
+    private boolean isInPool(Location loc) {
         return !(!loc.getWorld().equals(pos1.getWorld()) ||
                 loc.getBlockX() < pos1.getBlockX() || loc.getBlockX() > pos2.getBlockX() ||
                 loc.getBlockY() < pos1.getBlockY() || loc.getBlockY() > pos2.getBlockY() ||
                 loc.getBlockZ() < pos1.getBlockZ() || loc.getBlockZ() > pos2.getBlockZ());
     }
 
+    public Reward getRandomReward() {
+        Collections.shuffle(rewards);
+        Iterator ite = rewards.iterator();
+        if (ite.hasNext()) {
+            return (Reward) ite.next();
+        }
+        return null;
+    }
+
     @Nullable
-    public static Pool getPool(Player player) {
+    public static Pool getPool(Location loc) {
         for (Pool pool : pools.values()) {
-            if (pool.isInPool(player))
+            if (pool.isInPool(loc))
                 return pool;
         }
         return null;
@@ -69,7 +76,6 @@ public class Pool {
                 String[] line = reward.split("\\|");
                 if (line.length != 2) continue;
                 pool.rewards.add(new Reward(line[0], line[1]));
-                System.out.println(line[0]);
             }
         }
     }

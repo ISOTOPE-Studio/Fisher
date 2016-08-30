@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.jetbrains.annotations.Contract;
 
-/**
+/*
  * Created by Mars on 5/15/2016.
  * Copyright ISOTOPE Studio
  */

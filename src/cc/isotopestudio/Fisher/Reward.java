@@ -1,6 +1,8 @@
 package cc.isotopestudio.Fisher;
 
-/**
+import org.bukkit.entity.Player;
+
+/*
  * Created by Mars on 8/29/2016.
  * Copyright ISOTOPE Studio
  */
@@ -14,8 +16,8 @@ public class Reward {
         this.msg = msg;
     }
 
-    public String getCommand() {
-        return command;
+    public String getCommand(Player player) {
+        return command.replace("<player>", player.getName());
     }
 
     public String getMsg() {

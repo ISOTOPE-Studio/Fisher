@@ -1,8 +1,8 @@
 package cc.isotopestudio.Fisher.command;
 
 import cc.isotopestudio.Fisher.Pool;
-import cc.isotopestudio.Fisher.util.S;
 import cc.isotopestudio.Fisher.listener.AdminListener;
+import cc.isotopestudio.Fisher.util.S;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 
-/**
+/*
  * Created by Mars on 8/29/2016.
  * Copyright ISOTOPE Studio
  */

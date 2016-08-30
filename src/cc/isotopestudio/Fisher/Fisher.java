@@ -12,6 +12,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 
+/*
+ * Created by Mars on 5/15/2016.
+ * Copyright ISOTOPE Studio
+ */
 public class Fisher extends JavaPlugin {
 
     public static Fisher plugin;

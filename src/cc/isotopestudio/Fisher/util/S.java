@@ -4,6 +4,10 @@ import org.bukkit.ChatColor;
 
 import static cc.isotopestudio.Fisher.Fisher.prefix;
 
+/*
+ * Created by Mars on 5/15/2016.
+ * Copyright ISOTOPE Studio
+ */
 public class S {
 
     public static String toRed(String s) {
