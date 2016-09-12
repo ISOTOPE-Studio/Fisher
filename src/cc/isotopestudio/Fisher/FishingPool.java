@@ -2,7 +2,6 @@ package cc.isotopestudio.Fisher;
 
 import cc.isotopestudio.Fisher.util.ISOUtil;
 import org.bukkit.Location;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
@@ -12,22 +11,22 @@ import static cc.isotopestudio.Fisher.Fisher.plugin;
  * Created by Mars on 8/29/2016.
  * Copyright ISOTOPE Studio
  */
-public class Pool {
+public class FishingPool {
 
-    public static final Map<String, Pool> pools = new HashMap<>();
+    public static final Map<String, FishingPool> pools = new HashMap<>();
 
     private final String name;
     private final Location pos1;
     private final Location pos2;
     private final List<Reward> rewards = new ArrayList<>();
 
-    public Pool(String name, Location pos1, Location pos2, boolean save) {
+    public FishingPool(String name, Location pos1, Location pos2, boolean save) {
         this.name = name;
         this.pos1 = pos1;
         this.pos2 = pos2;
         if (save) {
             List<String> list = new ArrayList<>();
-            list.add("give <player> stone 1|ʯͷ!");
+            list.add("give <player> stone 1|Stone!");
             plugin.getPlayersData().set(name + ".pos1", ISOUtil.locationToString(pos1));
             plugin.getPlayersData().set(name + ".pos2", ISOUtil.locationToString(pos2));
             plugin.getPlayersData().set(name + ".reward", list);
@@ -48,16 +47,15 @@ public class Pool {
 
     public Reward getRandomReward() {
         Collections.shuffle(rewards);
-        Iterator ite = rewards.iterator();
+        Iterator<Reward> ite = rewards.iterator();
         if (ite.hasNext()) {
-            return (Reward) ite.next();
+            return ite.next();
         }
         return null;
     }
 
-    @Nullable
-    public static Pool getPool(Location loc) {
-        for (Pool pool : pools.values()) {
+    public static FishingPool getPool(Location loc) {
+        for (FishingPool pool : pools.values()) {
             if (pool.isInPool(loc))
                 return pool;
         }
@@ -70,7 +68,7 @@ public class Pool {
             Location pos2 = ISOUtil.stringToLocation(plugin.getPlayersData().getString(poolName + ".pos2"));
             if (pos1 == null || pos2 == null) continue;
             List<String> rewardList = plugin.getPlayersData().getStringList(poolName + ".reward");
-            Pool pool = new Pool(poolName, pos1, pos2, false);
+            FishingPool pool = new FishingPool(poolName, pos1, pos2, false);
             pools.put(poolName, pool);
             for (String reward : rewardList) {
                 String[] line = reward.split("\\|");

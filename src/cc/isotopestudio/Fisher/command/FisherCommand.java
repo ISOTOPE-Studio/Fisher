@@ -1,6 +1,6 @@
 package cc.isotopestudio.Fisher.command;
 
-import cc.isotopestudio.Fisher.Pool;
+import cc.isotopestudio.Fisher.FishingPool;
 import cc.isotopestudio.Fisher.listener.AdminListener;
 import cc.isotopestudio.Fisher.util.S;
 import org.bukkit.Location;
@@ -8,7 +8,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.Contract;
 
 /*
  * Created by Mars on 8/29/2016.
@@ -59,7 +58,7 @@ public class FisherCommand implements CommandExecutor {
                         getLarger(oldPos1.getBlockY(), oldPos2.getBlockY()),
                         getLarger(oldPos1.getBlockZ(), oldPos2.getBlockZ()));
 
-                Pool.pools.put(args[1], new Pool(args[1], pos1, pos2, true));
+                FishingPool.pools.put(args[1], new FishingPool(args[1], pos1, pos2, true));
 
                 player.sendMessage(S.toPrefixGreen("创建成功"));
                 player.sendMessage(S.toYellow("名字: " + args[1]));
@@ -74,12 +73,10 @@ public class FisherCommand implements CommandExecutor {
         return false;
     }
 
-    @Contract(pure = true)
     private int getLarger(int a, int b) {
         return a > b ? a : b;
     }
 
-    @Contract(pure = true)
     private int getSmaller(int a, int b) {
         return a < b ? a : b;
     }

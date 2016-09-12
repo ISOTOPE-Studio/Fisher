@@ -41,7 +41,7 @@ public class Fisher extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new AdminListener(), this);
         Bukkit.getPluginManager().registerEvents(new FishingListener(), this);
 
-        Pool.loadData();
+        FishingPool.loadData();
 
         getLogger().info(pluginName + "成功加载!");
         getLogger().info(pluginName + "由ISOTOPE Studio制作!");
